@@ -31920,9 +31920,11 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 
+// Creation de l'objet App avec react.
 var App = React.createClass({
 	displayName: 'App',
 
+	// Initialise la page avec localStorage, si des valeurs on etait enregistrees.
 	getInitialState: function getInitialState() {
 		var couleur = localStorage.getItem("recup");
 		var cod = marked(couleur);
@@ -31932,6 +31934,7 @@ var App = React.createClass({
 			code: couleur
 		};
 	},
+	// Fonction qui s'enclenche a chaque "onChange" actives. Elle permet le livewriting et le marked.
 	updateCode: function updateCode(newCode) {
 		this.setState({
 			code: newCode
@@ -31941,6 +31944,7 @@ var App = React.createClass({
 		$('#resultat').html(cod);
 		localStorage.setItem("recup", test);
 	},
+	// Initialisation des settigns de codemirror.
 	render: function render() {
 		var myCodeMirror = {
 			lineNumbers: true,
@@ -31953,87 +31957,6 @@ var App = React.createClass({
 });
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('big'));
-
-// var Message = React.createClass({
-// 	render : function() {
-// 		return (
-// 			<div>{this.props.text}</div>
-// 			);
-// 	}
-// });
-
-// var Input = React.createClass({
-// 	inputChange: function(e){
-// 		this.props.onChange(e.target.value)
-// 		console.log("inputhcnage")
-// 	},
-// 	componentDidMount: function(){
-// 		console.log("didmount")
-// 		var textArea = document.getElementById('code');
-// 		var myCodeMirror = CodeMirror.fromTextArea(textarea, {
-// 			lineNumbers: true,
-// 			matchBrackets: true,
-// 			lineWrapping: true,
-// 			mode: 'markdown',	
-// 		});
-// 			 var result = myCodeMirror.getValue();
-
-// 		 // function  prout(){
-// 		 // 	console.log(result);
-// 		 // }
-// 		 // setInterval(prout, 1050)
-
-// 	},
-// 	handleSubmit : function(e) {
-// 		console.log("fefe")
-// 		e.preventDefault();
-// 		this.setState({text: ' '});
-// 	},
-// 	render : function() {
-// 		return (
-// 			<form onSubmit={this.handleSubmit} >
-// 				<label>Type your Markdown</label>
-// 				<textarea  id="code" value={this.props.text}  cols="100" rows="20"></textarea>
-// 				<button type="submit">Post</button>
-// 			</form>
-// 			);
-// 	}
-// });
-// var Result = React.createClass({
-// 	getInitialState: function(){
-// 		return {text:''};
-// 	},
-// 	onChange : function (text) {
-// 		this.setState({text})
-// 	},
-// 	render : function() {
-// 		return (
-// 			<div className="container">
-// 			<div id="editeur"><Container onChange={this.onChange}/></div>
-// 			<div className="contain">
-// 			<label>Your results</label>
-// 			<div id="resultat"><Message text={this.state.text}/></div>
-// 			</div>
-// 			</div>
-// 			);
-// 	}
-// });
-
-// var Container = React.createClass({
-// 	getInitialState: function(){
-// 		return {text:''};
-// 	},
-// 	render : function() {
-// 		return (
-// 			<Input value={this.state.text} onChange={this.props.onChange}/>
-// 			);
-// 	}
-// });
-
-// ReactDOM.render(
-// 	<Result />,
-// 	document.getElementById('big')
-// );
 
 },{"codemirror/mode/javascript/javascript":3,"codemirror/mode/markdown/markdown":4,"codemirror/mode/xml/xml":6,"marked":35,"react":167,"react-codemirror":37,"react-dom":38}]},{},[168]);
 
