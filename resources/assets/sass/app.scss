@@ -1,6 +1,7 @@
 body {
-	background-color:teal;
-	color:white;
+	background-color: #F7F7F7;
+	padding: 0;
+	margin: 0;
 }
 
 .title {
@@ -13,24 +14,31 @@ body {
 	display: inline-block;
 	vertical-align:top;
 	margin-left:20px;
+	display: none;
 }
-#big {
-	display: inline-block;
-	width:50%;
-	margin-left:5%;
+#container {
 	.contain {
+		display:flex;	
+		height: 100vh;
+		.CodeMirror {
+			height: 100%;
+		}
 		.ReactCodeMirror {
-			height: 350px;
-			margin-bottom:15px;
+			min-height: 100%;
+			height: 100%;
+			width:49%;
+			vertical-align: top;
+			display:inline-block;
 		}
 	}
 	.resultat {
-		height: 300px;
-		padding-left: 5px;
+		width:49%;
+		height: 100%;
 		overflow-y: scroll;
-		color:black;
-		background-color: white;
 		padding-left: 5px;
+		margin-left: 5px;
+		display:inline-block;
+		color:black;
 	}
 }
 ::-webkit-scrollbar {

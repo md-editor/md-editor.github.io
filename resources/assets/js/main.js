@@ -11,33 +11,39 @@ require('codemirror/mode/markdown/markdown');
 
 
 var App = React.createClass({
+// Recupere les valeurs dans le localStorage si il y en a un.
 	componentDidMount: function(){
 		this.setState({
 			code : localStorage.getItem("recup")
 		});
 	},
+// Initisalise l'editeur vide, si le localStorage est vide.
 	getInitialState: function(){
 		return {
 			code:  ""
 		};
 	},
+// Affiche le nouveau code a chaque frappe et l'enregistre dans le localStorage.
 	updateCode: function(newCode) {
 		this.setState({
 			code: newCode,
 		});
-
 		localStorage.setItem("recup",newCode);
-
+		$('.CodeMirror-scroll').animate({scrollTop : $('#resultat').prop('scrollHeight')}, 5);
+	},
+	scrollAuto: function(){
+		console.log("coucuo");
 
 	},
+// Renvoie le code html et marked le code.
 	render: function() {
-		var md = marked(this.state.code);
 		var myCodeMirror = {
 			lineNumbers: true,
 			matchBrackets: true,
 			lineWrapping: true,
-			mode: "markdown"
+			mode: "markdown"	
 		};
+		var md = marked(this.state.code);
 		return (
 		<div className="contain">
 			<Codemirror value={this.state.code} onChange={this.updateCode} options={myCodeMirror} />
@@ -48,4 +54,6 @@ var App = React.createClass({
 	}
 });
 
-ReactDOM.render(<App />, document.getElementById('big'));
+// Je renderise la variable App dans l'element container
+ReactDOM.render(<App />, document.getElementById('container'));
+

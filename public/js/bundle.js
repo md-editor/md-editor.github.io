@@ -31923,36 +31923,44 @@ require('codemirror/mode/markdown/markdown');
 var App = React.createClass({
 	displayName: 'App',
 
+	// Recupere les valeurs dans le localStorage si il y en a un.
 	componentDidMount: function componentDidMount() {
 		this.setState({
 			code: localStorage.getItem("recup")
 		});
 	},
+	// Initisalise l'editeur vide, si le localStorage est vide.
 	getInitialState: function getInitialState() {
 		return {
 			code: ""
 		};
 	},
+	// Affiche le nouveau code a chaque frappe et l'enregistre dans le localStorage.
 	updateCode: function updateCode(newCode) {
 		this.setState({
 			code: newCode
 		});
-
 		localStorage.setItem("recup", newCode);
+		$('.CodeMirror-scroll').animate({ scrollTop: $('#resultat').prop('scrollHeight') }, 5);
 	},
+	scrollAuto: function scrollAuto() {
+		console.log("coucuo");
+	},
+	// Renvoie le code html et marked le code.
 	render: function render() {
-		var md = marked(this.state.code);
 		var myCodeMirror = {
 			lineNumbers: true,
 			matchBrackets: true,
 			lineWrapping: true,
 			mode: "markdown"
 		};
+		var md = marked(this.state.code);
 		return React.createElement('div', { className: 'contain' }, React.createElement(Codemirror, { value: this.state.code, onChange: this.updateCode, options: myCodeMirror }), React.createElement('div', { className: 'resultat', dangerouslySetInnerHTML: { __html: md } }));
 	}
 });
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('big'));
+// Je renderise la variable App dans l'element container
+ReactDOM.render(React.createElement(App, null), document.getElementById('container'));
 
 },{"codemirror/mode/javascript/javascript":3,"codemirror/mode/markdown/markdown":4,"codemirror/mode/xml/xml":6,"marked":35,"react":167,"react-codemirror":37,"react-dom":38}]},{},[168]);
 
