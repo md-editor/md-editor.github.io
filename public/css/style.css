@@ -13,14 +13,14 @@ body {
   vertical-align: top;
   margin-left: 20px; }
 
-.contain {
+#big {
   display: inline-block;
   width: 50%;
   margin-left: 5%; }
-  .contain #big .ReactCodeMirror {
+  #big .contain .ReactCodeMirror {
     height: 350px;
     margin-bottom: 15px; }
-  .contain #resultat {
+  #big .resultat {
     height: 300px;
     padding-left: 5px;
     overflow-y: scroll;
