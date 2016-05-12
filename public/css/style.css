@@ -33,6 +33,8 @@ body {
     height: 100%;
     width: 49%;
     vertical-align: top; }
+    #container .contain .ReactCodeMirror .cm-s-default .cm-header {
+      color: green; }
 
 #container .resultat {
   width: 49%;
