@@ -6,36 +6,38 @@ body {
 .title {
   text-align: center; }
 
-.regles {
-  width: 20%;
-  height: 500px;
-  color: black;
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 20px;
-  display: none; }
+#help {
+  margin: auto;
+  display: block; }
+
+#close {
+  margin-left: 95%; }
 
 #container .contain {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   height: 100vh; }
+  #container .contain #regles {
+    padding: 20px;
+    width: 20%;
+    height: auto;
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.1); }
   #container .contain .CodeMirror {
     height: 100%; }
   #container .contain .ReactCodeMirror {
-    min-height: 100%;
     height: 100%;
     width: 49%;
-    vertical-align: top;
-    display: inline-block; }
+    vertical-align: top; }
 
 #container .resultat {
   width: 49%;
-  height: 100%;
   overflow-y: scroll;
   padding-left: 5px;
-  margin-left: 5px;
-  display: inline-block;
   color: black; }
 
 ::-webkit-scrollbar {

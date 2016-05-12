@@ -31920,6 +31920,17 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 
+$(document).ready(function () {
+	$("#help").on("click", function () {
+		$("#regles").show();
+		$(this).hide();
+	});
+	$("#close").on("click", function () {
+		$("#regles").hide();
+		$("#help").show();
+	});
+});
+
 var App = React.createClass({
 	displayName: 'App',
 
@@ -31955,7 +31966,7 @@ var App = React.createClass({
 			mode: "markdown"
 		};
 		var md = marked(this.state.code);
-		return React.createElement('div', { className: 'contain' }, React.createElement(Codemirror, { value: this.state.code, onChange: this.updateCode, options: myCodeMirror }), React.createElement('div', { className: 'resultat', dangerouslySetInnerHTML: { __html: md } }));
+		return React.createElement('div', { className: 'contain' }, React.createElement(Codemirror, { value: this.state.code, onChange: this.updateCode, options: myCodeMirror }), React.createElement('div', { id: 'regles' }, React.createElement('button', { id: 'close' }, 'X'), React.createElement('h3', { 'class': 'title' }, 'How to use Markdown'), React.createElement('p', null, 'Mettre du text en italique : *italique* ou  _mot italique_'), React.createElement('p', null, 'Mettre du text en gras : **italique** ou  __mot italique__'), React.createElement('p', null, 'Mettre du text en balise HTML : Mon texte `code` fin de mon texte'), React.createElement('p', null, 'Pour faire un paragraphe : Mettre 4 espaces avant de commencer a rédiger'), React.createElement('p', null, 'Faire une citation : > citation '), React.createElement('p', null, 'Faire une liste non ordonnée : *liste, pour une sous liste faire 4 espaces'), React.createElement('p', null, 'Faire un titre : # Gros titre, ## Plus petit titre, ### etc..'), React.createElement('p', null, ' Pour un lien : [texte du lien](url_du_lien "texte pour le titre, facultatif")'), React.createElement('p', null, 'Pour une image : ![Texte alternatif](url_de_l\'image "texte pour le titre, facultatif")'), React.createElement('p', null, 'Pour faire une barre horizontale : ***')), React.createElement('div', { className: 'resultat', dangerouslySetInnerHTML: { __html: md } }));
 	}
 });
 
