@@ -8,11 +8,10 @@ body {
 	text-align: center;
 }
 #help{
-	margin: auto;
-	display:block;
+	vertical-align:top;
 }
 #close {
-	margin-left:95%;
+	margin-left:10%;
 }
 #container {
 	.contain {
@@ -27,14 +26,12 @@ body {
 	vertical-align:top;
 	display: none;
 	background-color: rgba(0,0,0,0.1);
+	border-left: 1px solid grey;
 }
 		.CodeMirror {
 			height: 100%;
 		}
 		.ReactCodeMirror {
-			.cm-s-default .cm-header{
-				color:green;
-			}
 			height: 100%;
 			width:49%;
 			vertical-align: top;
@@ -45,6 +42,7 @@ body {
 		overflow-y: scroll;
 		padding-left: 5px;
 		color:black;
+		border-left: 1px solid grey;
 	}
 }
 ::-webkit-scrollbar {

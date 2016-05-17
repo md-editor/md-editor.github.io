@@ -36,7 +36,7 @@ elixir(function(mix) {
 
 elixir(function(mix) {
     mix.browserSync({
-      server:'./',
+      server:'./public',
       proxy: false
     });
 });

@@ -1,4 +1,4 @@
-' use strict'
+'use strict'
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Codemirror = require('react-codemirror');
@@ -7,6 +7,8 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 
+
+// Gestion de l'ouverture des regles Markdown
 $(document).ready(function(){
 	$("#help").on("click", function(){
 		$("#regles").show();
@@ -15,6 +17,13 @@ $(document).ready(function(){
 	$("#close").on("click", function(){
 		$("#regles").hide();
 		$("#help").show();
+	});
+		$("#help").on("mouseover", function(){
+		$(this).addClass('huge');
+	});
+		$("#help").on("mouseleave", function(){
+		$(this).removeClass('huge');
+		$(this).addClass('big');
 	});
 });
 
@@ -40,10 +49,6 @@ var App = React.createClass({
 		localStorage.setItem("recup",newCode);
 		$('.CodeMirror-scroll').animate({scrollTop : $('#resultat').prop('scrollHeight')}, 5);
 	},
-	scrollAuto: function(){
-		console.log("coucuo");
-
-	},
 // Renvoie le code html et marked le code.
 	render: function() {
 		var myCodeMirror = {
@@ -56,9 +61,9 @@ var App = React.createClass({
 		return (
 		<div className="contain">
 			<Codemirror value={this.state.code} onChange={this.updateCode} options={myCodeMirror} />
+			<i id="help" className="help big circle icon"></i>
 			<div id="regles">
-				<button id="close">X</button>
-				<h3 class="title">How to use Markdown</h3>
+				<h3 className="title">How to use Markdown<i id="close" className="remove big circle icon"></i></h3>
 				<p>Mettre du text en italique : *italique* ou  _mot italique_</p>
 				<p>Mettre du text en gras : **italique** ou  __mot italique__</p>
 				<p>Mettre du text en balise HTML : Mon texte `code` fin de mon texte</p>

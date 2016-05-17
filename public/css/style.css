@@ -7,11 +7,10 @@ body {
   text-align: center; }
 
 #help {
-  margin: auto;
-  display: block; }
+  vertical-align: top; }
 
 #close {
-  margin-left: 95%; }
+  margin-left: 10%; }
 
 #container .contain {
   display: -webkit-flex;
@@ -26,21 +25,21 @@ body {
     display: inline-block;
     vertical-align: top;
     display: none;
-    background-color: rgba(0, 0, 0, 0.1); }
+    background-color: rgba(0, 0, 0, 0.1);
+    border-left: 1px solid grey; }
   #container .contain .CodeMirror {
     height: 100%; }
   #container .contain .ReactCodeMirror {
     height: 100%;
     width: 49%;
     vertical-align: top; }
-    #container .contain .ReactCodeMirror .cm-s-default .cm-header {
-      color: green; }
 
 #container .resultat {
   width: 49%;
   overflow-y: scroll;
   padding-left: 5px;
-  color: black; }
+  color: black;
+  border-left: 1px solid grey; }
 
 ::-webkit-scrollbar {
   width: 12px; }
